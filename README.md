@@ -1,4 +1,4 @@
-Mee gustaría ver una implementación de un CRUD de una tabla con elementos (id+descripción+marca) vinculados a una tabla
+Me gustaría ver una implementación de un CRUD de una tabla con elementos (id+descripción+marca) vinculados a una tabla
 de propiedades (id+color) y una tabla de estado (id+descripción) y que era posible cambiar el estado de cada artículo.
 Por ejemplo un artículo 1-Vestido-Zara, colores 1-negro y 2-blanco y, con estados 1-Listo para salir, 2-Alquilado,
 3-Para ser limpiado
@@ -6,6 +6,14 @@ Por ejemplo un artículo 1-Vestido-Zara, colores 1-negro y 2-blanco y, con estad
 # Development
 
 ## Models
+
+- Item
+  - description : str
+  - brand : str
+- Color
+  - color : str [black,white,...]
+- Status
+  - description : str [ready,rented,to_clean]
 
 ## Serializers
 
@@ -20,7 +28,7 @@ Por ejemplo un artículo 1-Vestido-Zara, colores 1-negro y 2-blanco y, con estad
 Clone the repo
 
 ```sh
-git clone git@github.com:djimenezp/InariBackendTest.git .
+git clone git@github.com:djimenezp/Test.git .
 ```
 
 For non-production environment
@@ -35,10 +43,18 @@ For production environment
 
 ```sh
 docker-compose -f docker-compose.prod.yml up -d --build
-docker-compose -f docker-compose.yml exec web python manage.py migrate --noinput --settings project.prod
 ```
 
 Server url will be in http://localhost/
+
+For adding initial user
+
+```sh
+#dev
+docker-compose -f docker-compose.yml exec web python manage.py createsuperuser
+#prod
+docker-compose -f docker-compose.prod.yml  exec web python manage.py createsuperuser
+```
 
 # Questionary
 
