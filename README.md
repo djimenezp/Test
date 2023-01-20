@@ -39,7 +39,7 @@ Server url will be in http://localhost/
 #dev
 docker-compose -f docker-compose.yml exec web python manage.py createsuperuser
 #prod
-docker-compose -f docker-compose.prod.yml  exec web python manage.py createsuperuser
+docker-compose -f docker-compose.prod.yml  exec web python manage.py createsuperuser --settings project.prod
 ```
 
 # Usage
